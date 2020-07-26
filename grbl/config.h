@@ -582,7 +582,6 @@
 #define ENABLE_PARKING_OVERRIDE_CONTROL   // Default disabled. Uncomment to enable
 // #define DEACTIVATE_PARKING_UPON_INIT // Default disabled. Uncomment to enable.
 
-// This option will automatically disab
 // Enables and configures Grbl's sleep mode feature. If the spindle or coolant are powered and Grbl 
 // is not actively moving or receiving any commands, a sleep timer will start. If any data or commands
 // are received, the sleep timer will reset and restart until the above condition are not satisfied.
@@ -591,8 +590,8 @@
 // well. While in sleep mode, only a hard/soft reset will exit it and the job will be unrecoverable.
 // NOTE: Sleep mode is a safety feature, primarily to address communication disconnect problems. To 
 // keep Grbl from sleeping, employ a stream of '?' status report commands as a connection "heartbeat".
-#define SLEEP_ENABLE  // Default disabled. Uncomment to enable.
-#define SLEEP_DURATION 5.0 // Float (0.25 - 61.0) seconds before sleep mode is executed.
+//#define SLEEP_ENABLE  // Default disabled. Uncomment to enable.
+#define SLEEP_DURATION 5.0 // seconds before sleep mode is executed.
 
 // This option will automatically disable the laser during a feed hold by invoking a spindle stop
 // override immediately after coming to a stop. However, this also means that the laser still may
