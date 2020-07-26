@@ -158,6 +158,11 @@ void protocol_main_loop()
 
     protocol_execute_realtime();  // Runtime command check point.
     if (sys.abort) { return; } // Bail to main() program loop to reset system.
+	
+	#ifdef SLEEP_ENABLE
+      // Check for sleep conditions and execute auto-park, if timeout duration elapses.
+      sleep_check();    
+    #endif
   }
 
   return; /* Never reached */
@@ -758,6 +763,13 @@ static void protocol_exec_rt_suspend()
 
       }
     }
+
+    #ifdef SLEEP_ENABLE
+      // Check for sleep conditions and execute auto-park, if timeout duration elapses.
+      // Sleep is valid for both hold and door states, if the spindle or coolant are on or
+      // set to be re-enabled.
+      sleep_check();
+    #endif
 
     protocol_exec_rt_system();
 
